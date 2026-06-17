@@ -1,0 +1,29 @@
+Build a web app called "AI Auton Drive" from my project files. Unzip `replit_project.zip` into the project root first — all files live there.
+
+WHAT IT DOES: A computer vision model trained to detect objects, lanes, and hazards in real-time dashcam video for autonomous driving assistance
+HOW USERS INTERACT: uploads a dashcam video or image from a driving scenario
+HOW RESULTS APPEAR: Bounding boxes with object labels (cars, pedestrians, signs) and confidence scores overlaid on the video/image
+VISUAL STYLE: Futuristic, dark and sleek with neon accents
+EXTRA FEATURES: show sample dashcam clips to try, display detection stats panel (object counts, FPS), speed/risk indicator
+
+Frontend stack is up to you — Gradio, Streamlit, or React + a Python backend are all fine. Pick whichever makes the nicest app. A Python backend runs the model.
+
+FIGURE OUT THE MODEL YOURSELF — don't assume, inspect the bundle:
+- Load every file through `model_setup.paths["<filename>"]`, never by raw path. Read model_setup.py's docstring for loaders (joblib, Keras, Transformers).
+- Use ALL provided files, not just the model — scalers, tokenizers, label maps, helper scripts, and data files are included because the app needs them.
+- If the bundle has multiple models or data sources for different features, build a section/mode for each — don't ship just one.
+- Inspect the model and any data/schema files to determine the exact input shape and output type, then build the UI to match.
+
+INPUTS: give users preloaded examples to try instantly, matched to the input type. For these built-in examples, use the real samples included in the bundle (for example the sample_images folder, or a sample data file like a .csv / .json / .npz). They come from the model's own data, so they match what it expects. Do not replace the built-in examples with stock photos, web-search results, or AI-generated images, which will not match the model and give meaningless predictions. This applies only to the preloaded examples: if the user later asks for a feature that needs outside images or data, that is fine. If the model takes many numeric features, let users pick or tweak an example instead of typing every field.
+
+OUTPUTS: present results clearly and visually, matched to the output type — probability bars for classification, a value card for a single number, a ranked list for recommendations. No plain unstyled text.
+
+RUNS ON REPLIT — must do:
+- Bind the server to host 0.0.0.0 and the port Replit provides (the PORT env var if set) so the web preview loads.
+- Every process the app needs must start in PRODUCTION, not just development. If you split into multiple services (e.g. a Python backend), give each one a production run command, not only a development one, and confirm the published deployment launches them all. A backend with only a dev run config will fail when published.
+- Install the included requirements.txt; if a pinned version conflicts with the environment, use the nearest compatible one.
+- Some model files may download on first launch; show a loading state.
+
+VISUAL POLISH: hero section with the app name and a one-line tagline; Inter font; mobile-friendly layout; styled cards/charts; make it feel like a real product, not a default demo.
+
+DONE WHEN: the app starts, the web preview loads, and clicking a preloaded example returns a correct-looking result.

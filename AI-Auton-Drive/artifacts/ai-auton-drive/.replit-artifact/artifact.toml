@@ -1,0 +1,24 @@
+kind = "web"
+previewPath = "/"
+title = "AI Auton Drive"
+version = "1.0.0"
+id = "artifacts/ai-auton-drive"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 26049
+
+[services.development]
+run = "python /home/runner/workspace/artifacts/ai-auton-drive/app.py"
+
+[services.production]
+run = "python /home/runner/workspace/artifacts/ai-auton-drive/app.py"
+
+[services.env]
+PORT = "26049"

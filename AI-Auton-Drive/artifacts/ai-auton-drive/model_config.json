@@ -1,0 +1,6 @@
+{
+  "hub_repo_id": "NessXXL/ai-auton-drive-model",
+  "hub_files": [
+    "yolo_model.keras"
+  ]
+}

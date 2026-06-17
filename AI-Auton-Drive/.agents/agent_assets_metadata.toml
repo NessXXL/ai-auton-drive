@@ -1,0 +1,8 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "MB7goFOrNPpmA6ATYCp-L"
+uri = "file://README.md"
+type = "text"
+title = "README.md — AI Auton Drive"
